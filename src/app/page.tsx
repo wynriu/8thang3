@@ -16,7 +16,6 @@ export default function Home() {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Khôi phục theme từ localStorage nếu có
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
     if (savedTheme) {
       setTheme(savedTheme);
@@ -54,32 +53,28 @@ export default function Home() {
 
   return (
     <main className="relative h-screen w-full flex flex-col items-center justify-between p-4 overflow-hidden bg-background">
-      {/* Nền hạt li ti */}
       <ParticleBackground />
       
       {/* Header */}
-      <header className="z-10 w-full text-center pt-2 md:pt-6 animate-in fade-in slide-in-from-top-4 duration-1000 shrink-0">
+      <header className="z-10 w-full text-center pt-4 md:pt-8 animate-in fade-in slide-in-from-top-4 duration-1000 shrink-0">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/40 dark:bg-black/20 backdrop-blur-md border border-primary/20 shadow-sm mb-2">
           <Stars className="w-4 h-4 text-primary animate-pulse" />
-          <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-primary uppercase">Món Quà Phép Màu</span>
+          <span className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Món Quà Phép Màu</span>
           <Sparkles className="w-3 h-3 text-accent animate-sparkle" />
         </div>
-        <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-accent drop-shadow-sm leading-tight">
+        <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-accent drop-shadow-sm leading-tight">
           Quà Tặng<span className="text-primary italic">May Mắn</span>
         </h1>
-        <p className="text-primary/70 dark:text-primary/50 font-medium text-sm md:text-base mt-1">
-          Khám phá những lời chúc dành riêng cho bạn
-        </p>
       </header>
 
-      {/* Content chính - Tự động căn giữa */}
-      <section className="z-10 w-full flex-1 flex items-center justify-center perspective-1000 max-w-lg mx-auto py-4 overflow-hidden">
+      {/* Content chính */}
+      <section className="z-10 w-full flex-1 flex items-center justify-center max-w-lg mx-auto py-4 overflow-hidden">
         {!fortuneData ? (
-          <div className="w-full scale-90 md:scale-100 transition-transform">
+          <div className="w-full transform scale-95 md:scale-100 transition-all duration-500">
             <FortuneForm onSubmit={handleGenerateFortune} isLoading={isLoading} />
           </div>
         ) : (
-          <div className="w-full scale-90 md:scale-100 transition-transform">
+          <div className="w-full transform scale-95 md:scale-100 transition-all duration-500">
             <FortuneCard 
               name={fortuneData.name} 
               fortune={fortuneData.fortune} 
@@ -90,21 +85,21 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="z-10 w-full text-center pb-4 shrink-0">
-        <p className="text-primary/50 font-medium text-xs">©2026 VinVibeCode</p>
-        <div className="flex justify-center gap-4 mt-2 text-lg">
-           <span className="animate-float-slow opacity-40">✨</span>
-           <span className="animate-heart-beat opacity-60">💝</span>
-           <span className="animate-float-fast opacity-40">✨</span>
+      <footer className="z-10 w-full text-center pb-6 shrink-0">
+        <p className="text-primary/60 font-bold text-xs tracking-widest uppercase">©2026 VinVibeCode</p>
+        <div className="flex justify-center gap-6 mt-3 text-xl opacity-40">
+           <span className="animate-float-slow">✨</span>
+           <span className="animate-heart-beat">💝</span>
+           <span className="animate-float-fast">✨</span>
         </div>
       </footer>
 
-      {/* Nút Dark Mode nổi */}
+      {/* Nút Dark Mode */}
       <Button
         onClick={toggleTheme}
         variant="outline"
         size="icon"
-        className="fixed bottom-6 right-6 z-50 rounded-full w-12 h-12 shadow-xl border-2 border-primary/20 bg-background/80 backdrop-blur-md hover:scale-110 transition-all"
+        className="fixed bottom-6 right-6 z-50 rounded-2xl w-12 h-12 shadow-2xl border-2 border-primary/20 bg-background/80 backdrop-blur-md hover:scale-110 active:scale-90 transition-all"
         aria-label="Toggle theme"
       >
         {theme === 'light' ? (
