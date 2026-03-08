@@ -3,7 +3,7 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Share2, Sparkles, RefreshCw, Gift, Quote } from "lucide-react";
+import { Share2, Sparkles, RefreshCw, Gift, Quote, Heart } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -17,11 +17,11 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
   const { toast } = useToast();
 
   const handleShare = async () => {
-    const text = `✨ Lời Chúc May Mắn Của Tôi ✨\n\n"${fortune}"\n\nĐược tạo bởi Quà Tặng May Mắn 💖`;
+    const text = `🌸 Lời Chúc 8/3 Ngọt Ngào 🌸\n\nGửi tặng ${name}: "${fortune}"\n\nĐược tạo bởi Quà Tặng 8/3 💖`;
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Lời Chúc May Mắn Của Tôi',
+          title: 'Lời Chúc 8/3 Ngọt Ngào',
           text: text,
           url: window.location.href,
         });
@@ -32,7 +32,7 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
       navigator.clipboard.writeText(text);
       toast({
         title: "Đã sao chép!",
-        description: "Lời chúc của bạn đã sẵn sàng để chia sẻ.",
+        description: "Lời chúc 8/3 đã sẵn sàng để gửi đi.",
       });
     }
   };
@@ -47,7 +47,7 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
           <div className="relative mb-2">
             <div className="absolute -inset-4 bg-primary/20 rounded-full animate-pulse blur-md" />
             <div className="relative bg-gradient-to-br from-primary to-accent p-4 rounded-[2rem] shadow-xl animate-heart-beat">
-              <Gift className="w-8 h-8 text-white" />
+              <Heart className="w-8 h-8 text-white fill-white" />
             </div>
             <Sparkles className="absolute -top-3 -right-3 w-6 h-6 text-yellow-500 animate-sparkle" />
           </div>
@@ -82,7 +82,7 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
               className="flex-1 rounded-2xl py-6 text-sm font-bold bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all active:scale-95"
             >
               <Share2 className="mr-2 w-4 h-4" />
-              Chia sẻ
+              Gửi Tặng
             </Button>
             <Button 
               onClick={onReset}
@@ -100,7 +100,7 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
       </Card>
       
       <div className="mt-4 flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/30 dark:bg-black/20 backdrop-blur-sm border border-white/20 animate-bounce">
-         <span className="text-[10px] font-bold text-primary/80 uppercase">Vuốt để đọc hết nội dung ✨</span>
+         <span className="text-[10px] font-bold text-primary/80 uppercase">Trao gửi yêu thương 8/3 ✨</span>
       </div>
     </div>
   );

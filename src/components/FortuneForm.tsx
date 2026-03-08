@@ -8,7 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Stars, Gift, Loader2 } from 'lucide-react';
+import { Heart, Gift, Loader2 } from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, "Tên phải có ít nhất 2 ký tự"),
@@ -38,10 +38,10 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
           </div>
         </div>
         <CardTitle className="text-2xl md:text-3xl font-bold text-foreground">
-          Lời Chúc <span className="text-primary italic">Dành Cho Bạn</span>
+          Lời Chúc <span className="text-primary italic">8/3 Yêu Thương</span>
         </CardTitle>
         <CardDescription className="text-sm text-primary/60 dark:text-primary/40">
-          Nhập thông tin để mở hộp quà tinh thần này
+          Hãy cho chúng tôi biết về "Nàng" để nhận quà nhé
         </CardDescription>
       </CardHeader>
       <CardContent className="p-8 md:p-10">
@@ -52,10 +52,10 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-semibold text-foreground/80">Tên của bạn</FormLabel>
+                  <FormLabel className="text-sm font-semibold text-foreground/80">Tên người nhận</FormLabel>
                   <FormControl>
                     <Input 
-                      placeholder="Nhập tên của bạn..." 
+                      placeholder="Nhập tên nàng..." 
                       className="rounded-2xl border-2 border-primary/10 focus:border-primary py-6 text-base transition-all bg-white/50 dark:bg-black/20"
                       {...field} 
                     />
@@ -73,7 +73,7 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
                   <FormControl>
                     <Input 
                       type="number" 
-                      placeholder="Ví dụ: 1995"
+                      placeholder="Ví dụ: 2000"
                       className="rounded-2xl border-2 border-primary/10 focus:border-primary py-6 text-base transition-all bg-white/50 dark:bg-black/20"
                       {...field} 
                     />
@@ -90,12 +90,12 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
               {isLoading ? (
                 <>
                   <Loader2 className="animate-spin w-5 h-5 text-white" />
-                  <span className="animate-shimmer-pink font-black">Đang tạo phép màu...</span>
+                  <span className="animate-shimmer-pink font-black">Đang chuẩn bị quà...</span>
                 </>
               ) : (
                 <>
-                  <Stars className="w-5 h-5" />
-                  Khám Phá Ngay
+                  <Heart className="w-5 h-5 fill-white" />
+                  Nhận Lời Chúc 8/3
                 </>
               )}
             </Button>

@@ -6,7 +6,7 @@ import { FortuneForm } from '@/components/FortuneForm';
 import { FortuneCard } from '@/components/FortuneCard';
 import { generatePersonalizedFortune } from '@/ai/flows/generate-personalized-fortune-flow';
 import { useToast } from '@/hooks/use-toast';
-import { Sparkles, Stars, Moon, Sun } from 'lucide-react';
+import { Sparkles, Stars, Moon, Sun, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Home() {
@@ -58,12 +58,12 @@ export default function Home() {
       {/* Header */}
       <header className="z-10 w-full text-center pt-4 md:pt-8 animate-in fade-in slide-in-from-top-4 duration-1000 shrink-0">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/40 dark:bg-black/20 backdrop-blur-md border border-primary/20 shadow-sm mb-2">
-          <Stars className="w-4 h-4 text-primary animate-pulse" />
-          <span className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Món Quà Phép Màu</span>
+          <Heart className="w-4 h-4 text-primary animate-pulse fill-primary" />
+          <span className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Món Quà 8/3 Ý Nghĩa</span>
           <Sparkles className="w-3 h-3 text-accent animate-sparkle" />
         </div>
         <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-accent drop-shadow-sm leading-tight">
-          Quà Tặng<span className="text-primary italic">May Mắn</span>
+          Quà Tặng <span className="text-primary italic">Dành Cho Nàng</span>
         </h1>
       </header>
 
@@ -88,9 +88,9 @@ export default function Home() {
       <footer className="z-10 w-full text-center pb-6 shrink-0">
         <p className="text-primary/60 font-bold text-xs tracking-widest uppercase">©2026 VinVibeCode</p>
         <div className="flex justify-center gap-6 mt-3 text-xl opacity-40">
-           <span className="animate-float-slow">✨</span>
+           <span className="animate-float-slow">🌸</span>
            <span className="animate-heart-beat">💝</span>
-           <span className="animate-float-fast">✨</span>
+           <span className="animate-float-fast">🌷</span>
         </div>
       </footer>
 
