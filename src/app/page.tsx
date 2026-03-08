@@ -7,7 +7,7 @@ import { FortuneForm } from '@/components/FortuneForm';
 import { FortuneCard } from '@/components/FortuneCard';
 import { generatePersonalizedFortune } from '@/ai/flows/generate-personalized-fortune-flow';
 import { useToast } from '@/hooks/use-toast';
-import { Sparkles, Stars, Moon, Sun, Heart } from 'lucide-react';
+import { Sparkles, Moon, Sun, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Home() {
@@ -64,7 +64,8 @@ export default function Home() {
           <Sparkles className="w-3 h-3 text-accent animate-sparkle" />
         </div>
         <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-accent drop-shadow-sm leading-tight">
-          Quà Tặng <span className="text-primary italic">Dành Cho Bạn</span>
+          Quà Tặng <br /> 
+          <span className="text-primary italic">Dành cho bạn</span>
         </h1>
       </header>
 
