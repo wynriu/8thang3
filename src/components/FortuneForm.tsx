@@ -42,7 +42,7 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
           Lời Chúc <span className="text-primary italic">Phép Màu</span>
         </CardTitle>
         <CardDescription className="text-sm text-primary/60 dark:text-primary/40">
-          Hãy cho chúng tôi biết về "Nàng" để nhận quà nhé
+          Hãy cho chúng tôi biết về bạn để nhận quà nhé
         </CardDescription>
       </CardHeader>
       <CardContent className="p-8 md:p-10">
@@ -53,10 +53,10 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-semibold text-foreground/80">Tên người nhận</FormLabel>
+                  <FormLabel className="text-sm font-semibold text-foreground/80">Tên của bạn</FormLabel>
                   <FormControl>
                     <Input 
-                      placeholder="Nhập tên nàng..." 
+                      placeholder="Nhập tên bạn..." 
                       className="rounded-2xl border-2 border-primary/10 focus:border-primary py-6 text-base transition-all bg-white/50 dark:bg-black/20"
                       {...field} 
                     />

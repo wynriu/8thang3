@@ -64,7 +64,7 @@ export default function Home() {
           <Sparkles className="w-3 h-3 text-accent animate-sparkle" />
         </div>
         <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-accent drop-shadow-sm leading-tight">
-          Quà Tặng <span className="text-primary italic">Dành Cho Nàng</span>
+          Quà Tặng <span className="text-primary italic">Dành Cho Bạn</span>
         </h1>
       </header>
 
