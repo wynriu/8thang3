@@ -3,7 +3,7 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Share2, Heart, Sparkles, RefreshCw } from "lucide-react";
+import { Share2, Sparkles, RefreshCw, Gift } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface FortuneCardProps {
@@ -38,15 +38,17 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
 
   return (
     <div className="w-full max-w-md animate-in zoom-in-95 fade-in duration-500">
-      <Card className="card-gold-border relative overflow-hidden shadow-2xl">
+      <Card className="card-gold-border relative overflow-hidden shadow-2xl bg-white/95">
         <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-accent to-primary" />
         
         <CardContent className="pt-12 pb-10 px-8 text-center space-y-8">
           <div className="flex justify-center">
             <div className="relative">
-              <div className="absolute -inset-4 bg-primary/10 rounded-full animate-pulse" />
-              <Heart className="w-16 h-16 text-primary fill-primary animate-float-medium" />
-              <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-yellow-500 animate-sparkle" />
+              <div className="absolute -inset-6 bg-primary/10 rounded-full animate-pulse" />
+              <div className="bg-gradient-to-br from-primary to-accent p-5 rounded-3xl shadow-lg animate-heart-beat">
+                <Gift className="w-12 h-12 text-white" />
+              </div>
+              <Sparkles className="absolute -top-3 -right-3 w-8 h-8 text-yellow-500 animate-sparkle" />
             </div>
           </div>
 
@@ -54,16 +56,20 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
             <h3 className="text-xl font-bold font-headline text-accent uppercase tracking-widest">
               Món quà cho {name}
             </h3>
-            <p className="text-2xl font-medium leading-relaxed italic text-foreground/90 font-body">
-              &ldquo;{fortune}&rdquo;
-            </p>
+            <div className="relative p-6 rounded-2xl bg-primary/5 border border-primary/10">
+              <span className="absolute -top-3 left-4 text-4xl text-primary/20 font-serif">“</span>
+              <p className="text-2xl font-medium leading-relaxed italic text-foreground/90 font-body relative z-10">
+                {fortune}
+              </p>
+              <span className="absolute -bottom-8 right-4 text-4xl text-primary/20 font-serif">”</span>
+            </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-4 pt-6">
             <Button 
               onClick={handleShare}
               variant="default" 
-              className="flex-1 rounded-full py-6 text-lg font-semibold bg-primary hover:bg-primary/90 transition-all hover:scale-105"
+              className="flex-1 rounded-full py-7 text-lg font-semibold bg-primary hover:bg-primary/90 transition-all hover:scale-105 shadow-md"
             >
               <Share2 className="mr-2 w-5 h-5" />
               Chia sẻ niềm vui
@@ -71,7 +77,7 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
             <Button 
               onClick={onReset}
               variant="outline" 
-              className="rounded-full py-6 px-6 border-2 border-primary/20 hover:bg-primary/10 transition-all"
+              className="rounded-full py-7 px-8 border-2 border-primary/20 hover:bg-primary/10 transition-all"
             >
               <RefreshCw className="w-5 h-5 text-primary" />
             </Button>
@@ -83,8 +89,8 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
         </div>
       </Card>
       
-      <p className="text-center mt-6 text-sm text-muted-foreground animate-pulse">
-        💖 Chúc thông điệp này mang lại niềm vui cho bạn hôm nay! 💖
+      <p className="text-center mt-6 text-sm text-primary/60 font-medium animate-pulse">
+        ✨ Chúc thông điệp này mang lại niềm vui cho bạn hôm nay! ✨
       </p>
     </div>
   );

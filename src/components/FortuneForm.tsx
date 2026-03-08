@@ -8,7 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Sparkles, Stars, Heart } from 'lucide-react';
+import { Sparkles, Stars, Gift } from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, "Tên phải có ít nhất 2 ký tự"),
@@ -30,21 +30,21 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
   });
 
   return (
-    <Card className="w-full max-w-md border-none shadow-2xl bg-white/80 backdrop-blur-sm rounded-3xl overflow-hidden animate-in slide-in-from-bottom-10 duration-700">
-      <CardHeader className="space-y-2 text-center pb-2 pt-8">
-        <div className="flex justify-center mb-2">
-          <div className="bg-primary/10 p-4 rounded-2xl">
-            <Stars className="w-10 h-10 text-primary" />
+    <Card className="w-full max-w-md border-none shadow-2xl bg-white/90 backdrop-blur-md rounded-[2.5rem] overflow-hidden animate-in slide-in-from-bottom-10 duration-700">
+      <CardHeader className="space-y-2 text-center pb-2 pt-10">
+        <div className="flex justify-center mb-4">
+          <div className="bg-primary/10 p-5 rounded-3xl animate-heart-beat">
+            <Gift className="w-12 h-12 text-primary" />
           </div>
         </div>
-        <CardTitle className="text-3xl font-bold font-headline text-foreground">
+        <CardTitle className="text-3xl font-bold text-foreground">
           Lời Chúc <span className="text-primary italic">Dành Cho Bạn</span>
         </CardTitle>
-        <CardDescription className="text-lg text-muted-foreground">
-          Nhập thông tin để nhận một thông điệp ý nghĩa
+        <CardDescription className="text-base text-primary/60">
+          Nhập thông tin để mở hộp quà tinh thần này
         </CardDescription>
       </CardHeader>
-      <CardContent className="p-8">
+      <CardContent className="p-10">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
@@ -56,7 +56,7 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
                   <FormControl>
                     <Input 
                       placeholder="Nhập tên của bạn..." 
-                      className="rounded-xl border-2 border-primary/10 focus:border-primary py-6 text-lg transition-all bg-white"
+                      className="rounded-2xl border-2 border-primary/10 focus:border-primary py-7 text-lg transition-all bg-white/50"
                       {...field} 
                     />
                   </FormControl>
@@ -74,7 +74,7 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
                     <Input 
                       type="number" 
                       placeholder="Ví dụ: 1995"
-                      className="rounded-xl border-2 border-primary/10 focus:border-primary py-6 text-lg transition-all bg-white"
+                      className="rounded-2xl border-2 border-primary/10 focus:border-primary py-7 text-lg transition-all bg-white/50"
                       {...field} 
                     />
                   </FormControl>
@@ -85,17 +85,17 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
             <Button 
               type="submit" 
               disabled={isLoading}
-              className="w-full py-8 text-xl font-bold rounded-2xl bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] active:scale-95 flex gap-2"
+              className="w-full py-8 text-xl font-bold rounded-2xl bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30 transition-all hover:scale-[1.02] active:scale-95 flex gap-2"
             >
               {isLoading ? (
                 <>
-                  <Sparkles className="animate-spin w-6 h-6" />
+                  <Sparkles className="animate-spin w-7 h-7" />
                   Đang tạo phép màu...
                 </>
               ) : (
                 <>
-                  <Heart className="w-6 h-6 fill-white" />
-                  Khám Phá Lời Chúc
+                  <Stars className="w-7 h-7" />
+                  Khám Phá Ngay
                 </>
               )}
             </Button>

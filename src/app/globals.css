@@ -1,25 +1,23 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Primary: #D9268C (334 70% 50%) */
+    /* Primary: #D9268C (334 70% 50%) - Hồng đậm */
     --primary: 334 70% 50%;
     --primary-foreground: 0 0% 100%;
     
-    /* Background: #F9EDF5 (321 44% 95%) */
-    --background: 321 44% 95%;
+    /* Background: #FFF0F6 (340 100% 97%) - Hồng cực nhạt */
+    --background: 340 100% 97%;
     --foreground: 334 70% 10%;
     
-    /* Card/Popover same as background or slightly lighter */
     --card: 0 0% 100%;
     --card-foreground: 334 70% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 334 70% 15%;
     
-    /* Accent: #A317CF (286 80% 45%) */
+    /* Accent: #A317CF (286 80% 45%) - Tím */
     --accent: 286 80% 45%;
     --accent-foreground: 0 0% 100%;
     
@@ -36,7 +34,7 @@
     --input: 334 30% 85%;
     --ring: 334 70% 50%;
     
-    --radius: 1rem;
+    --radius: 1.25rem;
   }
 }
 
@@ -46,8 +44,10 @@
   }
   body {
     @apply bg-background text-foreground font-body;
-    background-image: radial-gradient(circle at top right, rgba(217, 38, 140, 0.05), transparent),
-                      radial-gradient(circle at bottom left, rgba(163, 23, 207, 0.05), transparent);
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(217, 38, 140, 0.1), transparent),
+      radial-gradient(circle at 80% 80%, rgba(163, 23, 207, 0.1), transparent);
+    background-attachment: fixed;
   }
 }
 
@@ -68,4 +68,38 @@
   position: fixed;
   pointer-events: none;
   z-index: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+@keyframes particle-drift {
+  0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.4; }
+  100% { transform: translateY(-100vh) scale(0.5) rotate(360deg); opacity: 0; }
+}
+
+@keyframes heart-beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes sand-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.5); opacity: 0.7; }
+}
+
+.animate-heart-beat {
+  animation: heart-beat 1.5s ease-in-out infinite;
+}
+
+.animate-particle-drift {
+  animation: particle-drift linear infinite;
+}
+
+.animate-sand-pulse {
+  animation: sand-pulse 3s ease-in-out infinite;
 }
