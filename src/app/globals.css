@@ -79,6 +79,19 @@
   background-image: linear-gradient(hsl(var(--card)), hsl(var(--card))), radial-gradient(circle at top left, #FFD700, #D9268C, #A317CF);
 }
 
+.animate-shimmer-pink {
+  background: linear-gradient(90deg, #d9268c 25%, #ff85c0 50%, #d9268c 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 .particle {
   position: fixed;
   pointer-events: none;

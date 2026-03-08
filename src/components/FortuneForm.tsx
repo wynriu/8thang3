@@ -8,7 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Sparkles, Stars, Gift } from 'lucide-react';
+import { Stars, Gift, Loader2 } from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, "Tên phải có ít nhất 2 ký tự"),
@@ -89,8 +89,8 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
             >
               {isLoading ? (
                 <>
-                  <Sparkles className="animate-spin w-5 h-5" />
-                  Đang tạo phép màu...
+                  <Loader2 className="animate-spin w-5 h-5 text-white" />
+                  <span className="animate-shimmer-pink font-black">Đang tạo phép màu...</span>
                 </>
               ) : (
                 <>
