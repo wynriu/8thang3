@@ -1,23 +1,23 @@
 'use server';
 /**
- * @fileOverview A Genkit flow for generating personalized fortunes and wishes.
+ * @fileOverview Một luồng Genkit để tạo các lời chúc và vận may cá nhân hóa.
  *
- * - generatePersonalizedFortune - A function that handles the generation of a personalized fortune.
- * - GeneratePersonalizedFortuneInput - The input type for the generatePersonalizedFortune function.
- * - GeneratePersonalizedFortuneOutput - The return type for the generatePersonalizedFortune function.
+ * - generatePersonalizedFortune - Hàm xử lý việc tạo vận may cá nhân.
+ * - GeneratePersonalizedFortuneInput - Kiểu dữ liệu đầu vào cho hàm.
+ * - GeneratePersonalizedFortuneOutput - Kiểu dữ liệu đầu ra cho hàm.
  */
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 
 const GeneratePersonalizedFortuneInputSchema = z.object({
-  name: z.string().describe("The user's name."),
-  birthYear: z.number().describe("The user's birth year."),
+  name: z.string().describe("Tên của người dùng."),
+  birthYear: z.number().describe("Năm sinh của người dùng."),
 });
 export type GeneratePersonalizedFortuneInput = z.infer<typeof GeneratePersonalizedFortuneInputSchema>;
 
 const GeneratePersonalizedFortuneOutputSchema = z.object({
-  fortune: z.string().describe('A personalized, uplifting fortune or wish for the user.'),
+  fortune: z.string().describe('Một lời chúc hoặc vận may cá nhân hóa, tích cực dành cho người dùng.'),
 });
 export type GeneratePersonalizedFortuneOutput = z.infer<typeof GeneratePersonalizedFortuneOutputSchema>;
 
@@ -29,12 +29,12 @@ const prompt = ai.definePrompt({
   name: 'generatePersonalizedFortunePrompt',
   input: { schema: GeneratePersonalizedFortuneInputSchema },
   output: { schema: GeneratePersonalizedFortuneOutputSchema },
-  prompt: `You are an AI assistant that crafts unique, uplifting, and personalized fortunes and wishes for celebratory occasions.
+  prompt: `Bạn là một trợ lý AI chuyên sáng tạo những lời chúc và vận may độc đáo, truyền cảm hứng và mang tính cá nhân hóa cao cho các dịp kỷ niệm.
 
-Generate a single, inspiring fortune or wish for the user based on their name and birth year. Make sure the message is positive, encouraging, and feels specially crafted for them, suitable for events like International Women's Day or other personal celebrations.
+Hãy tạo một lời chúc hoặc vận may duy nhất, đầy cảm hứng cho người dùng dựa trên tên và năm sinh của họ. Đảm bảo thông điệp bằng TIẾNG VIỆT, mang tính tích cực, khích lệ và tạo cảm giác được dành riêng cho họ. Phù hợp cho các sự kiện như Ngày Quốc tế Phụ nữ hoặc các lễ kỷ niệm cá nhân khác.
 
-User's Name: {{{name}}}
-User's Birth Year: {{{birthYear}}}`,
+Tên người dùng: {{{name}}}
+Năm sinh: {{{birthYear}}}`,
 });
 
 const generatePersonalizedFortuneFlow = ai.defineFlow(

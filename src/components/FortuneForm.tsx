@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -12,8 +11,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Sparkles, Stars, Heart } from 'lucide-react';
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  birthYear: z.coerce.number().min(1900).max(new Date().getFullYear()),
+  name: z.string().min(2, "Tên phải có ít nhất 2 ký tự"),
+  birthYear: z.coerce.number().min(1900, "Năm sinh không hợp lệ").max(new Date().getFullYear(), "Năm sinh không thể ở tương lai"),
 });
 
 interface FortuneFormProps {
@@ -39,10 +38,10 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
           </div>
         </div>
         <CardTitle className="text-3xl font-bold font-headline text-foreground">
-          Your Celebration <span className="text-primary italic">Fortune</span>
+          Lời Chúc <span className="text-primary italic">Dành Cho Bạn</span>
         </CardTitle>
         <CardDescription className="text-lg text-muted-foreground">
-          Enter your details to receive a magical wish
+          Nhập thông tin để nhận một thông điệp ý nghĩa
         </CardDescription>
       </CardHeader>
       <CardContent className="p-8">
@@ -53,10 +52,10 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-base font-semibold text-foreground/80">Beautiful Name</FormLabel>
+                  <FormLabel className="text-base font-semibold text-foreground/80">Tên của bạn</FormLabel>
                   <FormControl>
                     <Input 
-                      placeholder="Enter your name..." 
+                      placeholder="Nhập tên của bạn..." 
                       className="rounded-xl border-2 border-primary/10 focus:border-primary py-6 text-lg transition-all bg-white"
                       {...field} 
                     />
@@ -70,11 +69,11 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
               name="birthYear"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-base font-semibold text-foreground/80">Year of Birth</FormLabel>
+                  <FormLabel className="text-base font-semibold text-foreground/80">Năm sinh</FormLabel>
                   <FormControl>
                     <Input 
                       type="number" 
-                      placeholder="e.g. 1995"
+                      placeholder="Ví dụ: 1995"
                       className="rounded-xl border-2 border-primary/10 focus:border-primary py-6 text-lg transition-all bg-white"
                       {...field} 
                     />
@@ -91,12 +90,12 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
               {isLoading ? (
                 <>
                   <Sparkles className="animate-spin w-6 h-6" />
-                  Generating Magic...
+                  Đang tạo phép màu...
                 </>
               ) : (
                 <>
                   <Heart className="w-6 h-6 fill-white" />
-                  Reveal My Fortune
+                  Khám Phá Lời Chúc
                 </>
               )}
             </Button>

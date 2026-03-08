@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -17,22 +16,22 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
   const { toast } = useToast();
 
   const handleShare = async () => {
-    const text = `✨ My Celebration Fortune ✨\n\n"${fortune}"\n\nGenerated with CelebrationFortunes 💖`;
+    const text = `✨ Lời Chúc May Mắn Của Tôi ✨\n\n"${fortune}"\n\nĐược tạo bởi Quà Tặng May Mắn 💖`;
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'My Celebration Fortune',
+          title: 'Lời Chúc May Mắn Của Tôi',
           text: text,
           url: window.location.href,
         });
       } catch (err) {
-        console.error("Error sharing:", err);
+        console.error("Lỗi khi chia sẻ:", err);
       }
     } else {
       navigator.clipboard.writeText(text);
       toast({
-        title: "Copied to clipboard!",
-        description: "Your fortune is ready to be shared.",
+        title: "Đã sao chép!",
+        description: "Lời chúc của bạn đã sẵn sàng để chia sẻ.",
       });
     }
   };
@@ -53,7 +52,7 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
 
           <div className="space-y-4">
             <h3 className="text-xl font-bold font-headline text-accent uppercase tracking-widest">
-              A Gift for {name}
+              Món quà cho {name}
             </h3>
             <p className="text-2xl font-medium leading-relaxed italic text-foreground/90 font-body">
               &ldquo;{fortune}&rdquo;
@@ -67,7 +66,7 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
               className="flex-1 rounded-full py-6 text-lg font-semibold bg-primary hover:bg-primary/90 transition-all hover:scale-105"
             >
               <Share2 className="mr-2 w-5 h-5" />
-              Share Joy
+              Chia sẻ niềm vui
             </Button>
             <Button 
               onClick={onReset}
@@ -80,12 +79,12 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
         </CardContent>
 
         <div className="absolute bottom-2 right-4 flex gap-1 opacity-20">
-          <span className="text-xs gold-accent font-bold">CELEBRATION FORTUNES</span>
+          <span className="text-xs gold-accent font-bold">QUÀ TẶNG MAY MẮN</span>
         </div>
       </Card>
       
       <p className="text-center mt-6 text-sm text-muted-foreground animate-pulse">
-        💖 May this bright wish accompany you today! 💖
+        💖 Chúc thông điệp này mang lại niềm vui cho bạn hôm nay! 💖
       </p>
     </div>
   );
