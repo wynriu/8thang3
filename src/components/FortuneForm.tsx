@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -25,7 +24,10 @@ interface FortuneFormProps {
 const ROTATING_MESSAGES = [
   "hãy cho tui biết tên bạn nhé😉",
   "bạn là ai tui đìu sẽ chúc😙",
-  "hy vọng ko bug🐧😭"
+  "hy vọng ko bug🐧😭",
+  "8/3 có lời chúc nào chưa, níu chưa thì zô đây😏",
+  "hôm nay zuiii hong🥹",
+  "awwwww😛"
 ];
 
 export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
