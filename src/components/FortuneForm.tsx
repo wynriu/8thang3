@@ -1,7 +1,7 @@
 
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Heart, Gift, Loader2 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
   name: z.string().min(2, "Tên phải có ít nhất 2 ký tự"),
@@ -21,7 +22,16 @@ interface FortuneFormProps {
   isLoading: boolean;
 }
 
+const ROTATING_MESSAGES = [
+  "hãy cho tui biết tên bạn nhé😉",
+  "bạn là ai tui đìu sẽ chúc😙",
+  "hy vọng ko bug🐧😭"
+];
+
 export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
+  const [messageIndex, setMessageIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -29,6 +39,18 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
       birthYear: 2007,
     },
   });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsVisible(false);
+      setTimeout(() => {
+        setMessageIndex((prev) => (prev + 1) % ROTATING_MESSAGES.length);
+        setIsVisible(true);
+      }, 500); // Đợi hiệu ứng fade out xong mới đổi chữ
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Card className="w-full border-none shadow-2xl bg-white/80 dark:bg-card/90 backdrop-blur-xl rounded-[2.5rem] overflow-hidden animate-in zoom-in-95 duration-700">
@@ -41,8 +63,11 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
         <CardTitle className="text-2xl md:text-3xl font-bold text-foreground">
           Lời Chúc <span className="text-primary italic">Phép Màu</span>
         </CardTitle>
-        <CardDescription className="text-sm text-primary/60 dark:text-primary/40">
-          Hãy cho chúng tôi biết về bạn để nhận quà nhé
+        <CardDescription className={cn(
+          "text-sm text-primary/60 dark:text-primary/40 font-medium transition-all duration-500 min-h-[20px]",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+        )}>
+          {ROTATING_MESSAGES[messageIndex]}
         </CardDescription>
       </CardHeader>
       <CardContent className="p-8 md:p-10">
@@ -91,7 +116,7 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
               {isLoading ? (
                 <>
                   <Loader2 className="animate-spin w-5 h-5 text-white" />
-                  <span className="animate-shimmer-pink font-black">Đang chuẩn bị quà...</span>
+                  <span className="animate-shimmer-pink font-black text-white">Đang chuẩn bị quà...</span>
                 </>
               ) : (
                 <>
