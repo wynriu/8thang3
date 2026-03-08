@@ -1,0 +1,17 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "celebration-bg",
+      "description": "Festive celebration background with pink and gold accents",
+      "imageUrl": "https://picsum.photos/seed/celebrate1/1200/800",
+      "imageHint": "celebration party"
+    },
+    {
+      "id": "fortune-reveal",
+      "description": "Magic sparkle reveal background",
+      "imageUrl": "https://picsum.photos/seed/magic1/600/400",
+      "imageHint": "magic sparkles"
+    }
+  ]
+}

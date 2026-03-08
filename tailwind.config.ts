@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -10,8 +11,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        body: ['Poppins', 'sans-serif'],
+        headline: ['Poppins', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
@@ -88,10 +89,27 @@ export default {
             height: '0',
           },
         },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0) rotate(0)' },
+          '50%': { transform: 'translateY(-20px) rotate(10deg)' },
+        },
+        'particle': {
+          '0%': { transform: 'translateY(0) scale(1)', opacity: '1' },
+          '100%': { transform: 'translateY(-100vh) scale(0)', opacity: '0' },
+        },
+        'sparkle': {
+          '0%, 100%': { opacity: '0' },
+          '50%': { opacity: '1' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'float-slow': 'float 6s ease-in-out infinite',
+        'float-medium': 'float 4s ease-in-out infinite',
+        'float-fast': 'float 2.5s ease-in-out infinite',
+        'particle': 'particle 5s linear infinite',
+        'sparkle': 'sparkle 2s ease-in-out infinite',
       },
     },
   },
