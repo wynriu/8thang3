@@ -67,7 +67,7 @@ export default function Home() {
         </section>
 
         <footer className="mt-8 text-center text-primary/40 font-medium text-sm">
-          <p>© {new Date().getFullYear()} Quà Tặng May Mắn</p>
+          <p>©2026 VinVibeCode</p>
           <div className="flex justify-center gap-6 mt-3 text-xl">
              <span className="animate-float-slow opacity-60">✨</span>
              <span className="animate-heart-beat">💝</span>
