@@ -26,7 +26,7 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
-      birthYear: 1995,
+      birthYear: 2007,
     },
   });
 
@@ -53,7 +53,7 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-semibold text-foreground/80">Tên của bạn</FormLabel>
+                  <FormLabel className="text-sm font-semibold text-foreground/80">Nhập tên bạn</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="Nhập tên bạn..." 
@@ -74,7 +74,7 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
                   <FormControl>
                     <Input 
                       type="number" 
-                      placeholder="Ví dụ: 2000"
+                      placeholder="Ví dụ: 2007"
                       className="rounded-2xl border-2 border-primary/10 focus:border-primary py-6 text-base transition-all bg-white/50 dark:bg-black/20"
                       {...field} 
                     />
