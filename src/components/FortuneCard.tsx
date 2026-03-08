@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -17,11 +18,11 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
   const { toast } = useToast();
 
   const handleShare = async () => {
-    const text = `🌸 Lời Chúc 8/3 Ngọt Ngào 🌸\n\nGửi tặng ${name}: "${fortune}"\n\nĐược tạo bởi Quà Tặng 8/3 💖`;
+    const text = `✨ Lời Chúc Phép Màu Tặng Nàng ✨\n\nGửi tặng ${name}: "${fortune}"\n\nĐược tạo bởi Món Quà 8/3 💖`;
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Lời Chúc 8/3 Ngọt Ngào',
+          title: 'Lời Chúc Phép Màu 8/3',
           text: text,
           url: window.location.href,
         });
@@ -32,7 +33,7 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
       navigator.clipboard.writeText(text);
       toast({
         title: "Đã sao chép!",
-        description: "Lời chúc 8/3 đã sẵn sàng để gửi đi.",
+        description: "Lời chúc phép màu đã sẵn sàng để gửi đi.",
       });
     }
   };
@@ -100,7 +101,7 @@ export function FortuneCard({ name, fortune, onReset }: FortuneCardProps) {
       </Card>
       
       <div className="mt-4 flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/30 dark:bg-black/20 backdrop-blur-sm border border-white/20 animate-bounce">
-         <span className="text-[10px] font-bold text-primary/80 uppercase">Trao gửi yêu thương 8/3 ✨</span>
+         <span className="text-[10px] font-bold text-primary/80 uppercase">Trao gửi yêu thương ✨</span>
       </div>
     </div>
   );

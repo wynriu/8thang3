@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -38,7 +39,7 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
           </div>
         </div>
         <CardTitle className="text-2xl md:text-3xl font-bold text-foreground">
-          Lời Chúc <span className="text-primary italic">8/3 Yêu Thương</span>
+          Lời Chúc <span className="text-primary italic">Phép Màu</span>
         </CardTitle>
         <CardDescription className="text-sm text-primary/60 dark:text-primary/40">
           Hãy cho chúng tôi biết về "Nàng" để nhận quà nhé
@@ -95,7 +96,7 @@ export function FortuneForm({ onSubmit, isLoading }: FortuneFormProps) {
               ) : (
                 <>
                   <Heart className="w-5 h-5 fill-white" />
-                  Nhận Lời Chúc 8/3
+                  Nhận Lời Chúc Phép Màu
                 </>
               )}
             </Button>
